@@ -421,7 +421,7 @@ class DeckModeController {
             <ul class="space-y-3 sm:space-y-3.5 text-xs sm:text-sm md:text-base text-gray-800 leading-snug mb-4">
               <li class="flex items-start gap-2.5">
                 <span class="text-pink-600 font-black text-base md:text-lg leading-none mt-0.5">•</span>
-                <div><strong class="font-black text-gray-900">Nhiếp ảnh | Quay phim | Dựng Phim :</strong> Level cơ bản</div>
+                <div><strong class="font-black text-gray-900">Nhiếp ảnh | Quay phim | Dựng Phim :</strong> Level Khá</div>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-pink-600 font-black text-base md:text-lg leading-none mt-0.5">•</span>
