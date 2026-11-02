@@ -161,7 +161,7 @@ class DeckModeController {
             <i data-lucide="menu" class="w-4.5 h-4.5 sm:w-5 sm:h-5"></i>
             <div class="bg-white/20 px-3.5 sm:px-4 py-1.5 rounded-full flex items-center gap-2 text-xs w-48 sm:w-64 border border-white/30">
               <i data-lucide="search" class="w-3.5 h-3.5"></i>
-              <span class="opacity-80 truncate">ngaanhnguyen-portfolio</span>
+              <span class="opacity-80 truncate">ngaanhnguyen_portfolio</span>
               <i data-lucide="mic" class="w-3.5 h-3.5 ml-auto"></i>
             </div>
             <i data-lucide="folder" class="w-4.5 h-4.5 sm:w-5 sm:h-5"></i>
@@ -472,7 +472,7 @@ class DeckModeController {
             <h2 class="text-4xl md:text-6xl font-black tracking-tight leading-tight uppercase">
               ABOUT<br>INDIVIDUAL<br>LEARNING<br>PROJECTS
             </h2>
-            <span class="text-sm sm:text-base md:text-lg text-pink-100 font-bold tracking-wide mt-4 block">Các dự án đã thực hiện • Đồ án môn học</span>
+            <span class="text-sm sm:text-base md:text-lg text-pink-100 font-bold tracking-wide mt-4 block">Các dự án đã thực hiện</span>
           </div>
         </div>
       </div>
@@ -868,7 +868,7 @@ class DeckModeController {
             
             <div class="space-y-1 text-xs text-pink-100 mb-4 bg-black/15 p-2.5 sm:p-3 rounded-xl border border-white/10 w-fit min-h-[52px] flex flex-col justify-center">
               <p><span class="text-pink-200 font-bold">Vai trò đảm nhiệm:</span> <span class="text-white font-semibold">Photographer</span></p>
-              <p><span class="text-pink-200 font-bold">Công cụ sử dụng:</span> <span class="text-white font-semibold">Compact digital camera</span></p>
+              <p><span class="text-pink-200 font-bold">Công cụ sử dụng:</span> <span class="text-white font-semibold">Digital camera</span></p>
             </div>
 
             <button class="open-evidence-btn px-6 py-2.5 bg-white text-[#B8005A] hover:bg-pink-100 rounded-full font-extrabold text-xs shadow-lg transition-all flex items-center gap-2 hover:scale-105 cursor-pointer" data-project-id="project-10">
@@ -948,7 +948,7 @@ class DeckModeController {
             <i data-lucide="menu" class="w-4.5 h-4.5 sm:w-5 sm:h-5"></i>
             <div class="bg-white/20 px-3.5 sm:px-4 py-1.5 rounded-full flex items-center gap-2 text-xs w-48 sm:w-64 border border-white/30">
               <i data-lucide="search" class="w-3.5 h-3.5"></i>
-              <span class="opacity-80 truncate">ngaanhnguyen-portfolio</span>
+              <span class="opacity-80 truncate">ngaanhnguyen_portfolio</span>
               <i data-lucide="mic" class="w-3.5 h-3.5 ml-auto"></i>
             </div>
           </div>

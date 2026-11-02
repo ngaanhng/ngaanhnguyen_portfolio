@@ -268,13 +268,209 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
-/* Project Card Hover Animation */
+/* ==========================================================================
+   Project Cards - Scroll-Triggered Entrance (Slide-in / Bounce) & Glowing Hover
+   ========================================================================== */
+
+/* Base Project Card Styling */
 .project-card {
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  border: 1px solid #FCE7F3 !important;
+  border-radius: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
 }
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 45px -12px rgba(190, 24, 93, 0.25);
+
+/* Scroll-triggered Entrance: Initial State */
+.project-card.scroll-reveal {
+  opacity: 0;
+  transform: translateY(65px) scale(0.92);
+  will-change: transform, opacity;
+}
+
+/* Scroll-triggered Entrance: Active Animation (Slide-in & Bounce up) */
+.project-card.scroll-reveal.is-visible {
+  animation: projectCardBounceIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--stagger, 0) * 0.12s);
+}
+
+@keyframes projectCardBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(70px) scale(0.92);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-12px) scale(1.025);
+  }
+  75% {
+    transform: translateY(4px) scale(0.992);
+  }
+  90% {
+    transform: translateY(-2px) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Card Hover State: Lift up + Soft Elegant Glow (No dark pink/red border) */
+.project-card:hover,
+.project-card.is-hovered {
+  transform: translateY(-8px) !important;
+  border-color: #FBCFE8 !important; /* Viền hồng pastel thanh nhã, không dùng viền đỏ/hồng đậm */
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.1),
+              0 4px 20px -2px rgba(244, 114, 182, 0.22) !important;
+  z-index: 10;
+}
+
+/* Card Image Hover: Smooth Zoom-In Effect */
+.project-card .open-project-trigger {
+  overflow: hidden;
+  border-top-left-radius: 1.4rem;
+  border-top-right-radius: 1.4rem;
+}
+
+.project-card .open-project-trigger img,
+.project-card .project-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.4s ease;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.project-card:hover .open-project-trigger img,
+.project-card:hover .project-card-image,
+.project-card.is-hovered .open-project-trigger img,
+.project-card.is-hovered .project-card-image {
+  transform: scale(1.08); /* Phóng to nhẹ nhàng (Zoom-in) */
+  filter: brightness(1.03) contrast(1.02);
+}
+
+/* Action button arrow icon: keep clean vector arrow without background or box */
+.project-card [data-lucide="arrow-right"],
+.project-card .lucide-arrow-right {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   MY PHOTO GALLERY Modal - Scroll-Triggered Entrance & Hover Zoom
+   ========================================================================== */
+
+/* Gallery Item Cards in MY PHOTO GALLERY Modal */
+.gallery-item-card {
+  position: relative;
+  border: 1px solid #FCE7F3 !important;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+/* Scroll-triggered Entrance: Initial State */
+.gallery-item-card.scroll-reveal {
+  opacity: 0;
+  transform: translateY(45px) scale(0.93);
+  will-change: transform, opacity;
+}
+
+/* Scroll-triggered Entrance: Active Animation (Slide-in & Bounce up) */
+.gallery-item-card.scroll-reveal.is-visible {
+  animation: galleryCardBounceIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--stagger, 0) * 0.1s);
+}
+
+@keyframes galleryCardBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.92);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.02);
+  }
+  80% {
+    transform: translateY(3px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Hover State: Lift up slightly + Soft Clean Shadow (NO dark red/pink border) */
+.gallery-item-card:hover {
+  transform: translateY(-6px) scale(1.015) !important;
+  border-color: #FBCFE8 !important; /* Soft pastel pink, no dark red */
+  box-shadow: 0 16px 35px -8px rgba(0, 0, 0, 0.18),
+              0 4px 15px -2px rgba(244, 114, 182, 0.25) !important;
+  z-index: 5;
+}
+
+/* Image Zoom-In on Hover */
+.gallery-item-card img,
+.gallery-item-card .gallery-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.4s ease;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.gallery-item-card:hover img,
+.gallery-item-card:hover .gallery-card-img {
+  transform: scale(1.08) !important; /* Phóng to nhẹ nhàng (Zoom-in) */
+  filter: brightness(1.04) contrast(1.02);
+}
+
+/* Zoom Icon Pop in center */
+.gallery-item-card .transform {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item-card:hover .transform {
+  transform: scale(1.1) !important;
+}
+
+.gallery-item-card img {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+}
+
+.gallery-item-card:hover img {
+  transform: scale(1.08) !important;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .project-card.scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .project-card:hover {
+    transform: none !important;
+    animation: none !important;
+  }
+  .project-card:hover .open-project-trigger img {
+    transform: none !important;
+  }
 }
 
 /* Before / After Color Grading Slider */

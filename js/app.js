@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     projectGrid.innerHTML = filtered.map((p, idx) => `
-      <div class="project-card bg-white rounded-3xl overflow-hidden border border-pink-100 shadow-xl flex flex-col group transition-all duration-300 hover:border-pink-300">
+      <div class="project-card scroll-reveal bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col group transition-all duration-300" style="--stagger: ${idx % 3};" data-card-idx="${idx}">
         <!-- Card Header / Poster -->
         <div class="relative aspect-video bg-gray-900 overflow-hidden cursor-pointer open-project-trigger" data-project-id="${p.id}">
-          <img src="${p.previewImage || 'assets/images/milo_preview.svg'}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="${(p.title || '').replace(/"/g, '&quot;')}">
+          <img src="${p.previewImage || 'assets/images/milo_preview.svg'}" class="project-card-image w-full h-full object-cover" alt="${(p.title || '').replace(/"/g, '&quot;')}">
           
           <!-- Category & Tag Badges -->
           <div class="absolute top-3 left-3 flex items-center gap-2">
@@ -158,6 +158,48 @@ document.addEventListener('DOMContentLoaded', () => {
         deckController.open(slideIdx);
       });
     });
+
+    // Initialize Scroll-triggered Entrance Animations (Slide-in / Bounce)
+    initCardScrollAnimations();
+  }
+
+  // Scroll-triggered Entrance Animation Observer for Project Cards
+  let cardObserver = null;
+  function initCardScrollAnimations() {
+    if (cardObserver) {
+      cardObserver.disconnect();
+    }
+
+    const cards = projectGrid.querySelectorAll('.project-card');
+    if (!cards.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach(c => {
+        c.classList.add('is-visible');
+        c.classList.remove('scroll-reveal');
+      });
+      return;
+    }
+
+    cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          card.classList.add('is-visible');
+          // When entrance bounce animation finishes, clean up so hover transitions run cleanly
+          card.addEventListener('animationend', () => {
+            card.style.animation = 'none';
+            card.classList.remove('scroll-reveal');
+          }, { once: true });
+          cardObserver.unobserve(card);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    cards.forEach(card => cardObserver.observe(card));
   }
 
   // Update Category UI

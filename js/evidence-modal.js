@@ -170,8 +170,8 @@ class EvidenceModal {
             <!-- Responsive Gallery Grid -->
             <div id="gallery-photos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               ${(p.photoCollection || []).map((photo, pIdx) => `
-                <div class="gallery-item-card group relative bg-gray-900 rounded-2xl overflow-hidden border border-pink-100 shadow-md hover:shadow-2xl hover:border-pink-300 transition-all duration-300 cursor-pointer aspect-[4/3]" data-photo-idx="${pIdx}">
-                  <img src="${photo.img}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 select-none" alt="${photo.title}" loading="lazy">
+                <div class="gallery-item-card scroll-reveal group relative bg-gray-900 rounded-2xl overflow-hidden shadow-md cursor-pointer aspect-[4/3]" style="--stagger: ${pIdx % 3};" data-photo-idx="${pIdx}">
+                  <img src="${photo.img}" class="gallery-card-img w-full h-full object-cover select-none" alt="${photo.title}" loading="lazy">
                   
                   <div class="absolute top-2.5 left-2.5 z-10">
                     <span class="px-2.5 py-1 bg-black/75 backdrop-blur-md text-white rounded-full text-[10px] sm:text-[11px] font-bold tracking-wide border border-white/10 shadow-sm">
@@ -320,6 +320,45 @@ class EvidenceModal {
     };
     document.removeEventListener('keydown', handleKeydown);
     document.addEventListener('keydown', handleKeydown);
+
+    // Initialize Scroll Animations for Gallery Photos in Modal
+    this.initGalleryScrollAnimations();
+  }
+
+  initGalleryScrollAnimations() {
+    const modalContent = this.modalContent;
+    if (!modalContent) return;
+
+    const cards = modalContent.querySelectorAll('.gallery-item-card');
+    if (!cards.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach(c => {
+        c.classList.add('is-visible');
+        c.classList.remove('scroll-reveal');
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          card.classList.add('is-visible');
+          card.addEventListener('animationend', () => {
+            card.style.animation = 'none';
+            card.classList.remove('scroll-reveal');
+          }, { once: true });
+          observer.unobserve(card);
+        }
+      });
+    }, {
+      root: modalContent,
+      threshold: 0.05,
+      rootMargin: '0px 0px 50px 0px'
+    });
+
+    cards.forEach(card => observer.observe(card));
   }
 
   initVideoPlayer() {
