@@ -625,7 +625,7 @@ const PROJECTS_DATA = [
     course: "Entrepreneurship Capstone – Van Lang University",
     year: "2026",
     client: "Little Spoon Nutrition (Startup Capstone)",
-    software: ["Zalo Mini App Platform", "Antigravity", "Canva"],
+    software: ["Zalo Mini App Platform", "Antigravity", "Chat GPT"],
     liveAppUrl: "https://little-spoon-zalo-oa.netlify.app/",
     colorHex: "#0284c7",
     accentBg: "from-blue-600 to-amber-700",

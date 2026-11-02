@@ -827,7 +827,7 @@ class DeckModeController {
             
             <div class="space-y-1 text-xs text-pink-100 mb-4 bg-black/15 p-2.5 sm:p-3 rounded-xl border border-white/10 w-fit min-h-[52px] flex flex-col justify-center">
               <p><span class="text-pink-200 font-bold">Vai trò đảm nhiệm:</span> <span class="text-white font-semibold">Media &amp; Product Lead / UI-UX Designer</span></p>
-              <p><span class="text-pink-200 font-bold">Công cụ sử dụng:</span> <span class="text-white font-semibold">Zalo Mini App Platform, Antigravity, Canva</span></p>
+              <p><span class="text-pink-200 font-bold">Công cụ sử dụng:</span> <span class="text-white font-semibold">Zalo Mini App Platform, Antigravity, Chat GPT</span></p>
             </div>
 
             <button class="open-evidence-btn px-6 py-2.5 bg-white text-[#B8005A] hover:bg-pink-100 rounded-full font-extrabold text-xs shadow-lg transition-all flex items-center gap-2 hover:scale-105 cursor-pointer" data-project-id="project-9">
