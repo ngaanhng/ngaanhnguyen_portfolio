@@ -852,6 +852,19 @@ main {
    DEDICATED RESPONSIVE HEADER FOR IPAD PORTRAIT, IPAD LANDSCAPE & LAPTOPS
    ========================================================================== */
 
+/* Base Brand Logo circular avatar style */
+.brand-logo-box {
+  border-radius: 50% !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+.brand-logo-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+
 /* 1. iPad Portrait / Small Tablets (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   header {
@@ -872,12 +885,16 @@ main {
   header .brand-logo-box {
     width: 2.15rem !important;
     height: 2.15rem !important;
-    border-radius: 0.75rem !important;
+    border-radius: 50% !important;
+    background: transparent !important;
     box-shadow: 0 3px 8px rgba(190, 24, 93, 0.2) !important;
+    overflow: hidden !important;
   }
   header .brand-logo-img {
-    width: 1.25rem !important;
-    height: 1.25rem !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
   }
   header .brand-name {
     font-size: 0.875rem !important;
@@ -927,6 +944,9 @@ main {
   header .brand-logo-box {
     width: 2.35rem !important;
     height: 2.35rem !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    overflow: hidden !important;
   }
   header .brand-name {
     font-size: 0.95rem !important;
@@ -961,11 +981,15 @@ main {
   header .brand-logo-box {
     width: 2.15rem !important;
     height: 2.15rem !important;
-    border-radius: 0.75rem !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    overflow: hidden !important;
   }
   header .brand-logo-img {
-    width: 1.25rem !important;
-    height: 1.25rem !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
   }
   header .brand-name {
     font-size: 0.875rem !important;
@@ -1027,11 +1051,15 @@ main {
   header .brand-logo-box {
     width: 2.35rem !important;
     height: 2.35rem !important;
-    border-radius: 0.75rem !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    overflow: hidden !important;
   }
   header .brand-logo-img {
-    width: 1.35rem !important;
-    height: 1.35rem !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
   }
   header .brand-name {
     font-size: 0.95rem !important;
@@ -1096,10 +1124,15 @@ main {
   header .brand-logo-box {
     width: 2.5rem !important;
     height: 2.5rem !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    overflow: hidden !important;
   }
   header .brand-logo-img {
-    width: 1.5rem !important;
-    height: 1.5rem !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
   }
   header .brand-name {
     font-size: 1.05rem !important;
